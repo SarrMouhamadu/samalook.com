@@ -1,0 +1,74 @@
+.section {
+  padding: 6rem 1.5rem;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-playfair);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-montserrat);
+  color: var(--muted-foreground);
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Product Card Styles embedded in grid module or separate, keeping here for simplicity */
+.card {
+  group: hover;
+  cursor: pointer;
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: #f0f0f0;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.1);
+}
+
+.info {
+  text-align: center;
+}
+
+.productName {
+  font-family: var(--font-playfair);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.productPrice {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: var(--accent); /* Luxury gold touch */
+}

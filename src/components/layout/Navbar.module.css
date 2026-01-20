@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navContainer {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-playfair);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.navLinks {
+  display: none;
+  gap: 2.5rem;
+}
+
+.navLinks a {
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.navLinks a:hover {
+  opacity: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.cartBtn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.menuBtn {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+  }
+  .menuBtn {
+    display: none;
+  }
+}
