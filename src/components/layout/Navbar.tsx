@@ -7,9 +7,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./Navbar.module.css";
 import { cn } from "@/lib/utils";
 
+import { useCart } from "@/context/CartContext";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openCart, cartCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,8 +37,13 @@ export default function Navbar() {
           </nav>
 
           <div className={styles.actions}>
-            <button className={styles.cartBtn} aria-label="Panier">
+            <button className={styles.cartBtn} aria-label="Panier" onClick={openCart}>
               <ShoppingBag size={22} strokeWidth={1.5} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-sans">
+                  {cartCount}
+                </span>
+              )}
             </button>
             <button 
               className={styles.menuBtn} 

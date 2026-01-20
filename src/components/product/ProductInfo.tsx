@@ -1,16 +1,35 @@
 "use client";
 
+import { useCart } from "@/context/CartContext";
 import { ShoppingBag, ShieldCheck, Truck } from "lucide-react";
 import styles from "./ProductInfo.module.css";
 
 interface ProductInfoProps {
+  id: string;
   name: string;
   price: string;
   description: string;
+  image: string;
   features?: string[];
 }
 
-export default function ProductInfo({ name, price, description, features }: ProductInfoProps) {
+export default function ProductInfo({ id, name, price, description, image, features }: ProductInfoProps) {
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    // Parse price string to number for calculation (approximate for demo)
+    // "820 000 FCFA" -> 820000
+    const numericPrice = parseInt(price.replace(/[^0-9]/g, "")) || 0;
+    
+    addItem({
+      id,
+      name,
+      price: numericPrice,
+      priceString: price,
+      image
+    });
+  };
+
   return (
     <div className={styles.info}>
       <div className={styles.header}>
@@ -28,7 +47,7 @@ export default function ProductInfo({ name, price, description, features }: Prod
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.addToCartBtn}>
+        <button className={styles.addToCartBtn} onClick={handleAddToCart}>
           Ajouter au Panier
         </button>
       </div>

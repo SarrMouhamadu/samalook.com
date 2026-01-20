@@ -56,9 +56,11 @@ export default async function ProductPage({ params }: PageProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
         <ProductGallery images={product.images} name={product.name} />
         <ProductInfo 
+          id={product.id}
           name={product.name} 
           price={product.price} 
-          description={product.description} 
+          description={product.description}
+          image={product.images[0]} 
         />
       </div>
       
