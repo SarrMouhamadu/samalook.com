@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductInfo from "@/components/product/ProductInfo";
+import ProductSuggestions from "@/components/product/ProductSuggestions";
 
 // Mock data service
 const PRODUCTS = [
@@ -60,6 +61,8 @@ export default async function ProductPage({ params }: PageProps) {
           description={product.description} 
         />
       </div>
+      
+      <ProductSuggestions />
     </div>
   );
 }
